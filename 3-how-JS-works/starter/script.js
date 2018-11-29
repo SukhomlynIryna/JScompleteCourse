@@ -1,38 +1,38 @@
 ///////////////////////////////////////
 // Lecture: Hoisting
-
-calculateAge(1965);
-
-function calculateAge(year) {
-    console.log(2016 - year);
-}
-
-calculateAge(1990);
-
-
-retirement(1965);
-var retirement = function (year) {
-    console.log(65 - (2016 - b));
-}
-
-//variables
-
-console.log(age);
-var age = 23;
-console.log(age);
-
-function foo() {
-    var age = 65;
-    console.log(age);
-}
-
-foo();
-console.log(age);
-
-///////////////////////////////////////
-// Lecture: Scoping
-// First scoping example
-
+//
+//calculateAge(1965);
+//
+//function calculateAge(year) {
+//    console.log(2016 - year);
+//}
+//
+//calculateAge(1990);
+//
+//
+//retirement(1965);
+//var retirement = function (year) {
+//    console.log(65 - (2016 - b));
+//}
+//
+////variables
+//
+//console.log(age);
+//var age = 23;
+//console.log(age);
+//
+//function foo() {
+//    var age = 65;
+//    console.log(age);
+//}
+//
+//foo();
+//console.log(age);
+//
+/////////////////////////////////////////
+//// Lecture: Scoping
+//// First scoping example
+//
 /*
 var a = 'Hello!';
 first();
@@ -74,5 +74,36 @@ function third() {
 
 
 
- ///////////////////////////////////////
+///////////////////////////////////////
 // Lecture: The this keyword
+//console.log(this);
+//
+//calcAge(1985);
+//function calcAge(year){
+//    console.log(2016-year);
+//    console.log(this);
+//}
+//
+var john = {
+    name: 'John',
+    year: 1898,
+    calc: function () {
+        console.log(this);
+        console.log(this.year);
+
+        //        function innerFunction(){
+        //            console.log(this);
+        //        }
+        //        innerFunction();  
+    }
+}
+
+john.calc();
+
+var mike = {
+    name: 'Mike',
+    year: 1987
+};
+
+mike.calc = john.calc;
+mike.calc();
