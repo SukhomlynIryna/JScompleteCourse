@@ -9,7 +9,7 @@ GAME RULES:
 
 */
 
-var scores, roundScore, ativePlayer, gamePlaying;
+var scores, roundScore, ativePlayer, gamePlaying, previousScore;
 
 init();
 //document.querySelector('#selector-' + activePlayer).innerHTML = '<em>' + dice + < /em>
@@ -22,14 +22,18 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
     if (gamePlaying) {
         // 1. Random number
         var dice = Math.floor(Math.random() * 6) + 1;
-
         // 2. Display the result
         var diceDOM = document.querySelector('.dice');
         diceDOM.style.display = 'block';
         diceDOM.src = 'dice-' + dice + '.png';
 
         // 3. Update the round score IF the rolled number was NOT a 1
-        if (dice !== 1) {
+
+        if (previousScore === 6 && dice === 6) {
+            scores[activePlayer] == 0;
+            document.querySelector('#score-' + activePlayer).textContent = 0;
+            nextPlayer();
+        } else if (dice !== 1) {
             //add score
             roundScore += dice;
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
@@ -38,6 +42,7 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
             nextPlayer();
         }
     }
+    previousScore = dice;
 });
 
 document.querySelector('.btn-hold').addEventListener('click', function () {
@@ -49,9 +54,18 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
         // update the UI
         document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
+        var inputWinScore = document.querySelector('.winDice').value;
+        var winningScore;
+
+        if (inputWinScore) {
+            winningScore = inputWinScore;
+        } else {
+            winningScore = 100;
+        }
+
         //check if player won the game
 
-        if (scores[activePlayer] >= 100) {
+        if (scores[activePlayer] >= winningScore) {
             document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
             document.querySelector('.dice').style.display = 'none';
             document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
@@ -88,6 +102,7 @@ function init() {
     activePlayer = 0;
     roundScore = 0;
     gamePlaying = true;
+    previousScore = 0;
 
     document.querySelector('.dice').style.display = 'none';
 
@@ -105,3 +120,5 @@ function init() {
 
     document.querySelector('.player-0-panel').classList.add('acvite');
 }
+
+// 3 challanges
