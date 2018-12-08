@@ -1,16 +1,90 @@
- var Person = function (name, yearOfBirth, job) {
-     this.name = name;
-     this.yearOfBirth = yearOfBirth;
-     this.job = job;
- }
+// var Person = function (name, yearOfBirth, job) {
+//     this.name = name;
+//     this.yearOfBirth = yearOfBirth;
+//     this.job = job;
+// }
+//
+// Person.prototype.calcAge = function () {
+//     console.log(2016 - this.yearOfBirth);
+// }
+//
+//
+//
+// var john = new Person('John', 1990, 'teacher');
+// john.calcAge();
+// var jane = new Person('Jane', 1969, 'designer');
+// jane.calcAge();
 
- Person.prototype.calcAge = function () {
-     console.log(2016 - this.yearOfBirth);
- }
+
+//object.create
+
+//var personProto = {
+//    calculateAge: function () {
+//        console.log(2016 - this.yearOfBirth);
+//    }
+//};
+//
+//var john = Object.create(personProto);
+//john.name = 'John';
+//john.yearOfBirth = 1990;
+//john.job = 'teacher';
+//
+//var jane = Object.create(personProto, {
+//    name: {
+//        value: 'Jane'
+//    },
+//    yearOfBirth: {
+//        value: 1968
+//    },
+//    job: {
+//        value: 'designer'
+//    }
+//
+//});
 
 
+//primitives vs objects
 
- var john = new Person('John', 1990, 'teacher');
- john.calcAge();
- var jane = new Person('Jane', 1969, 'designer');
- jane.calcAge();
+//var a = 45;
+//var b = a;
+//a = 35;
+//
+//console.log(a);
+//console.log(b);
+//
+////objects
+//var obj1 = {
+//    name: 'john',
+//    age: 26
+//};
+//
+//var obj2 = obj1;
+//obj1.age = 30;
+//
+//console.log(obj1.age);
+//console.log(obj2.age);
+//
+////functions
+//
+//var age = 27;
+//var obj = {
+//    name: 'Jonas',
+//    city: 'Lisabon'
+//}
+//
+//function change(a, b) {
+//    a = 30;
+//    b.city = 'San Francisco';
+//}
+//
+//change(age, obj);
+//confirm.log(age);
+//
+//confirm.log(obj.city);
+
+
+// passing functions as arguments
+
+var years = [1990, 1965, 1937, 2005, 1998];
+
+function arrayCalc(arr, fn ){}
